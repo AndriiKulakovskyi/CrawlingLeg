@@ -6,6 +6,26 @@ sequence of intensity frames into an asynchronous stream of brightness
 events `(t, x, y, polarity)`, modelling the dominant physical effects of
 real DVS pixels. Only NumPy is required.
 
+## Installation
+
+```bash
+pip install -e .          # library only
+pip install -e ".[test]"  # with pytest for the test suite
+```
+
+## Repository layout
+
+```
+event_camera_simulator/   the simulator package
+├── simulator.py          EventCameraSimulator (DVS pixel model)
+├── config.py             SensorConfig presets and parameters
+├── events.py             EventPacket container with I/O
+├── visualization.py      event images, time surfaces, voxel grids, PNG writer
+└── scenes.py             synthetic high-fps test scenes
+examples/                 runnable demo (writes PNGs + .npz)
+tests/                    pytest suite for the sensor model
+```
+
 ## Sensor model
 
 Each pixel follows the standard DVS pixel pipeline (in the spirit of the
